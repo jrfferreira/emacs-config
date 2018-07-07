@@ -67,26 +67,33 @@
    :prefix "C-,"
    "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
    "SPC" '(helm-M-x :which-key "M-x")
+
+   "e" '(:which-key "checks")
+   "el" '(flycheck-list-errors :which-key "list errors")
    
    "g" '(:which-key "magit")
    "gs" '(magit-status :which-key "magit status")
-   "gb" '(magit-status :which-key "magit blame")
+   "gb" '(magit-blame :which-key "magit blame")
    
    "f" '(:which-key "files")
-   "ff"  '(helm-find-files :which-key "find files")
+   "ff" '(helm-find-files :which-key "find file")
+   "fk" '(delete-file :which-key "delete file")
+   "fs" '(helm-ag :which-key "find occurrences")
    
    "p" '(:which-key "project")
-   "ps"  '(helm-projectile-find-file :which-key "find files")
-   "pf"  '(helm-projectile-ag :which-key "find occurrences")
+   "ps" '(helm-projectile-switch-project :which-key "select project")
+   "pf" '(helm-projectile-find-file :which-key "find files")
+   "ps" '(helm-projectile-ag :which-key "find occurrences")
    
    "b" '(:which-key "buffers")
-   "bk"  '(kill-buffer :which-key "kill buffer")
-   "bb"  '(helm-buffers-list :which-key "buffers list")
+   "bk" '(kill-buffer :which-key "kill buffer")
+   "bb" '(helm-buffers-list :which-key "buffers list")
+   "be" '(eval-buffer :which-key "eval buffer")
    
    "w" '(:which-key "window")
-   "w/"  '(split-window-right :which-key "split right")
-   "w-"  '(split-window-below :which-key "split bottom")
-   "wd"  '(delete-window :which-key "delete window")
+   "w/" '(split-window-right :which-key "split right")
+   "w-" '(split-window-below :which-key "split bottom")
+   "wd" '(delete-window :which-key "delete window")
    ))
 
 
@@ -109,7 +116,9 @@
   helm-autoresize-max-height 0
   helm-autoresize-min-height 20)
   :config
-  (helm-mode 1))
+  (helm-mode 1)
+  :bind (("C-x C-f" . helm-find-files)
+	 ("C-x C-b" . helm-buffers-list)))
 
 (use-package helm-projectile
   :config
@@ -217,7 +226,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm-ag helm-projectile toggle-quotes doom-themes use-package))))
+    (git-gutter git-gutter-fringe+ helm-ag helm-projectile toggle-quotes doom-themes use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
