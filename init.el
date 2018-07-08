@@ -4,8 +4,8 @@
 (tooltip-mode    -1)
 (menu-bar-mode   -1)
 (global-hl-line-mode t)
-(global-linum-mode t)
-(setq-default linum-format "%4d ")
+(global-display-line-numbers-mode t)
+(setq display-line-numbers "%4d ")
 
 ;; prefer vertical split
 (setq split-height-threshold nil)
@@ -161,6 +161,13 @@
 (use-package magit
   :ensure t
   :init)
+
+
+(use-package git-gutter
+  :ensure t
+  :init
+  :config
+  (global-git-gutter-mode t))
 
 
 (use-package flycheck
