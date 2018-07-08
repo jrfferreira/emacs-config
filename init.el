@@ -97,126 +97,7 @@
    ))
 
 
-;; Helm
-(use-package helm
-  :ensure t
-  :init
-  (setq helm-M-x-fuzzy-match t
-  helm-mode-fuzzy-match t
-  helm-buffers-fuzzy-matching t
-  helm-recentf-fuzzy-match t
-  helm-locate-fuzzy-match t
-  helm-semantic-fuzzy-match t
-  helm-imenu-fuzzy-match t
-  helm-completion-in-region-fuzzy-match t
-  helm-candidate-number-list 150
-  helm-split-window-in-side-p t
-  helm-move-to-line-cycle-in-source t
-  helm-echo-input-in-header-line t
-  helm-autoresize-max-height 0
-  helm-autoresize-min-height 20)
-  :config
-  (helm-mode 1)
-  :bind (("C-x C-f" . helm-find-files)
-	 ("C-x C-b" . helm-buffers-list)
-	 :map helm-map
-	 ("TAB" . #'helm-execute-persistent-action)
-	 ("<tab>" . #'helm-execute-persistent-action)
-	 ("C-z" . #'helm-select-action)
-	 ))
 
-
-(use-package helm-projectile
-  :config
-  (helm-projectile-on))
-
-
-;; Which Key
-(use-package which-key
-  :ensure t
-  :init
-  (setq which-key-separator " ")
-  (setq which-key-prefix-prefix "+")
-  :config
-  (which-key-mode 1))
-
-
-;; [Frameworks]
-
-(use-package company
-  :ensure t
-  :init
-   ;; Delete consecutive dupes from company in case they differ by annotation only
-  ;; https://github.com/company-mode/company-mode/issues/528
-  (with-eval-after-load 'company
-    (add-to-list 'company-transformers 'delete-consecutive-dups t))
-  (setq company-idle-delay 0.1)
-  (setq company-tooltip-align-annotations t)
-  :config
-  (global-company-mode t))
-
-
-(use-package projectile
-  :ensure t
-  :init
-  (setq projectile-require-project-root nil)
-  :config
-  (projectile-mode 1))
-
-
-(use-package magit
-  :ensure t
-  :init)
-
-
-(use-package git-gutter
-  :ensure t
-  :init
-  :config
-  (global-git-gutter-mode t))
-
-
-(use-package flycheck
-  :ensure t
-  :init
-  :config
-  (global-flycheck-mode))
-
-
-(use-package multiple-cursors
-  :ensure t
-  :init
-  :config
-  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-M-<") 'mc/mark-all-like-this)
-  (global-set-key (kbd "C-M->") 'mc/edit-lines)
-  (defun mc/mouse-quit ()
-    "Deactivate mark if there are any active, and exit multiple-cursors-mode."
-    (interactive)
-    (if (use-region-p)
-        (deactivate-mark))
-    (multiple-cursors-mode 0))
-  (global-set-key (kbd "<down-mouse-1>") #'mc/mouse-quit)
-  (global-unset-key (kbd "C-S-<down-mouse-1>"))
-  (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
-  )
-
-
-(use-package highlight-thing
-  :ensure t
-  :init
-  (setq highlight-thing-case-sensitive-p t)
-  (setq highlight-thing-what-thing 'word)
-  (setq highlight-thing-exclude-thing-under-point t)
-  :config
-  (global-highlight-thing-mode))
-
-
-(use-package toggle-quotes
-  :ensure t
-  :init
-  (global-set-key (kbd "C-'") 'toggle-quotes))
 
 ;; [General changes]
 
@@ -224,13 +105,21 @@
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 
+;; prefer vertical split
+(setq split-height-threshold nil)
+(setq split-width-threshold 150)
+
+;; Avoid lock files
+(setq create-lockfiles nil)
 
 ;; Disable backup files
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
 (setq create-lockfiles nil)
 
-
+(load-file "modules/core.el")
+(load-file "lang/javascript.el")
+		   
 ;; Auto generated
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -239,7 +128,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (git-gutter git-gutter-fringe+ helm-ag helm-projectile toggle-quotes doom-themes use-package))))
+    (rjsx-mode indent-guide git-gutter git-gutter-fringe+ helm-ag helm-projectile toggle-quotes doom-themes use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
