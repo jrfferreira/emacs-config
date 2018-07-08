@@ -118,7 +118,13 @@
   :config
   (helm-mode 1)
   :bind (("C-x C-f" . helm-find-files)
-	 ("C-x C-b" . helm-buffers-list)))
+	 ("C-x C-b" . helm-buffers-list)
+	 :map helm-map
+	 ("TAB" . #'helm-execute-persistent-action)
+	 ("<tab>" . #'helm-execute-persistent-action)
+	 ("C-z" . #'helm-select-action)
+	 ))
+
 
 (use-package helm-projectile
   :config
