@@ -22,9 +22,10 @@
    "e" '(:which-key "checks")
    "el" '(flycheck-list-errors :which-key "list errors")
    
-   "g" '(:which-key "magit")
+   "g" '(:which-key "git")
    "gs" '(magit-status :which-key "magit status")
    "gb" '(magit-blame :which-key "magit blame")
+   "gh" '(git-timemachine :which-key "history")
    
    "f" '(:which-key "files")
    "ff" '(helm-find-files :which-key "find file")

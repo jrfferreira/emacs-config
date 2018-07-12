@@ -15,7 +15,7 @@
 ;; [General changes]
 
 ;; Defining ZSH as default shell
-(defvar default-shell "zsh")
+(defvar default-shell "/bin/zsh")
 (setenv "SHELL" default-shell)
 (setq-default explicit-shell-file-name default-shell)
 
@@ -54,7 +54,7 @@
  '(flycheck-javascript-flow-args nil)
  '(package-selected-packages
    (quote
-    (doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter git-gutter-fringe+ helm-ag helm-projectile toggle-quotes doom-themes use-package))))
+    (git-timemachine doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter git-gutter-fringe+ helm-ag helm-projectile toggle-quotes doom-themes use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
