@@ -43,6 +43,7 @@
 
 ;; [Languages]
 (load-file (expand-file-name "./lang/javascript.el" user-emacs-directory))
+(load-file (expand-file-name "./lang/yaml.el" user-emacs-directory))
 		   
 ;; Auto generated
 (custom-set-variables
@@ -53,7 +54,7 @@
  '(flycheck-javascript-flow-args nil)
  '(package-selected-packages
    (quote
-    (company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter git-gutter-fringe+ helm-ag helm-projectile toggle-quotes doom-themes use-package))))
+    (exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter git-gutter-fringe+ helm-ag helm-projectile toggle-quotes doom-themes use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
