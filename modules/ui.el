@@ -35,13 +35,9 @@
   :config
   (load-theme 'doom-one t))
 
-
-;; Power line
-(use-package powerline
-  :ensure t
-  :init
-  (setq powerline-default-separator nil)
-  :config
-  (powerline-default-theme))
+(use-package doom-modeline
+      :ensure t
+      :defer t
+      :hook (after-init . doom-modeline-init))
 
 (provide 'ui)
