@@ -43,3 +43,5 @@
   (setq powerline-default-separator nil)
   :config
   (powerline-default-theme))
+
+(provide 'ui)

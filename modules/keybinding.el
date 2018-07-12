@@ -49,3 +49,5 @@
    "w-" '(split-window-below :which-key "split bottom")
    "wd" '(delete-window :which-key "delete window")
    ))
+
+(provide 'keybinding)

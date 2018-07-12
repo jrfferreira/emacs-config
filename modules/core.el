@@ -1,5 +1,12 @@
 ;;; Core modules
 
+(use-package undo-tree
+  :ensure t
+  :bind (("C-_" . 'undo-tree-undo)
+	 ("M-_" . 'undo-tree-redo))
+  :config
+  (global-undo-tree-mode))
+
 ;; Helm
 (use-package helm
   :ensure t
@@ -20,9 +27,9 @@
   helm-autoresize-min-height 20)
   :config
   (helm-mode 1)
-  :bind (("C-x C-f" . helm-find-files)
-	 ("C-x b" . helm-buffers-list)
-	 ("M-x" . helm-M-x)
+  :bind (("C-x C-f" . 'helm-find-files)
+	 ("C-x b" . 'helm-buffers-list)
+	 ("M-x" . 'helm-M-x)
 	 :map helm-map
 	 ("TAB" . #'helm-execute-persistent-action)
 	 ("<tab>" . #'helm-execute-persistent-action)
@@ -56,7 +63,10 @@
   (setq company-idle-delay 0.1)
   (setq company-tooltip-align-annotations t)
   :config
-  (global-company-mode t))
+  (global-company-mode t)
+  ; Use tab key to cycle through suggestions.
+; ('tng' means 'tab and go')
+  (company-tng-configure-default))
 
 
 (use-package projectile
@@ -127,3 +137,5 @@
 ;; Show matching parens
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+
+(provide 'core)
