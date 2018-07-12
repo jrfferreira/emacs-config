@@ -1,50 +1,25 @@
-;;; Javascript
+;;; Javascript --- configuration for Javascript language with Flycheck and Flow
 
 ;; RJSX/ELINT
 
-(use-package tide
-  :ensure t
-  :after (company flycheck)
-  :init
-  (setq-default
-   ;tide-tsserver-executable "/usr/local/bin/tsserver"
-   tide-format-options '(:indentSize 2 :indentStyle 2 :tabSize 2 :ConvertTabsToSpaces t)
-   ))
+(use-package flow-minor-mode
+  :ensure t)
 
-;; In case of no result of eslint, check the config:
-;; $  eslint --print-config .
-;; Tide / JS
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (eldoc-mode +1)
-  (company-mode +1)
-  ;; (tide-hl-identifier-mode +1)
-  (setq
-   ;; flycheck-check-syntax-automatically '(save mode-enabled)
-   tide-format-options '(:indentSize 2 :indentStyle 2 :tabSize 2 :ConvertTabsToSpaces t)
-   tide-tsserver-executable "/usr/local/bin/tsserver"
-   tide-completion-detailed t
-     tide-always-show-documentation t
-     )
-    )
 
 (defun init-flycheck ()
   (interactive)
   (use-package flycheck-flow
-    :after (tide company flycheck)
+    :after (flycheck flow-minor-mode)
+    :config
+    (flycheck-add-next-checker 'javascript-flow 'javascript-eslint)
     :init
     (progn
       (setq-default flycheck-disabled-checkers '(javascript-flow-coverage))
       (setq flycheck-display-errors-delay 0.5)
-      (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change))
-      (flycheck-add-mode 'javascript-flow 'rjsx-mode)
-      (flycheck-add-mode 'javascript-eslint 'rjsx-mode)
-      (flycheck-add-next-checker 'javascript-flow 'javascript-eslint)))
+      (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change)))
     (with-eval-after-load 'flycheck
       (push 'javascript-jshint flycheck-disabled-checkers)
-      (push 'json-jsonlint flycheck-disabled-checkers)))
+      (push 'json-jsonlint flycheck-disabled-checkers))))
 
 ;; flow-company
 (defun set-flow-executable ()
@@ -59,17 +34,20 @@
 (defun init-company-flow ()
   (interactive)
   (use-package company-flow
-    :after (company tide)
+    :after (company flow-minor-mode)
     :defer t
     :commands company-flow
     :init
-    (eval-after-load 'company
-      (add-to-list 'company-backends 'company-flow))
-    (add-to-list 'company-flow-modes 'rjsx-mode)))
+     (with-eval-after-load 'company
+       (add-to-list 'company-backends 'company-flow))
+    ))
 
+
+(use-package prettier-js
+  :ensure t)
 
 (use-package rjsx-mode
-  :after (tide)
+  :after (company flycheck prettier-js)
   :ensure t
   :init
   (setq
@@ -83,14 +61,10 @@
   (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
   (add-hook 'rjsx-mode-hook #'set-flow-executable)
-  (add-hook 'rjsx-mode-hook #'setup-tide-mode)
   (add-hook 'rjsx-mode-hook #'init-company-flow)
   (add-hook 'rjsx-mode-hook #'init-flycheck)
-  )
-
-(use-package prettier-js
-  :after (rjsx-mode)
-  :ensure t
-  :init
   (add-hook 'rjsx-mode-hook #'prettier-js-mode))
 
+
+(provide 'javascript)
+;;; javascript.el ends here
