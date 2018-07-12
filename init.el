@@ -14,6 +14,20 @@
 
 ;; [General changes]
 
+;; Defining ZSH as default shell
+(defvar default-shell "zsh")
+(setenv "SHELL" default-shell)
+(setq-default explicit-shell-file-name default-shell)
+
+;; Ensuring user shell vars
+(use-package exec-path-from-shell
+  :ensure t
+  :if (memq window-system '(mac ns x))
+  :init
+  (setq exec-path-from-shell-shell-name default-shell)
+  :config
+  (exec-path-from-shell-initialize))
+
 ;; Avoid lock files
 (setq create-lockfiles nil)
 
