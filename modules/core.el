@@ -1,4 +1,4 @@
-;; Core modules
+;;; Core modules
 
 ;; Helm
 (use-package helm
@@ -22,6 +22,7 @@
   (helm-mode 1)
   :bind (("C-x C-f" . helm-find-files)
 	 ("C-x b" . helm-buffers-list)
+	 ("M-x" . helm-M-x)
 	 :map helm-map
 	 ("TAB" . #'helm-execute-persistent-action)
 	 ("<tab>" . #'helm-execute-persistent-action)
@@ -29,19 +30,20 @@
 	 ))
 
 (use-package helm-projectile
-  :after (helm)q
+  :after (helm)
   :config
   (helm-projectile-on))
 
 
-;; Which Key
-(use-package which-key
+(use-package ranger
+  :ensure t)
+
+(use-package flycheck
   :ensure t
   :init
-  (setq which-key-separator " ")
-  (setq which-key-prefix-prefix "+")
   :config
-  (which-key-mode 1))
+  (global-flycheck-mode))
+
 
 ;; Company
 (use-package company
@@ -77,19 +79,13 @@
   (global-git-gutter-mode t))
 
 
-(use-package flycheck
-  :ensure t
-  :init
-  :config
-  (global-flycheck-mode))
-
-
 (use-package indent-guide
   :ensure t
   :init
-  (set-face-background 'indent-guide-face "black")
   (setq indent-guide-char " ")
-  :config (indent-guide-global-mode))
+  :config
+  (indent-guide-global-mode)
+  (set-face-background 'indent-guide-face "black"))
 
 
 (use-package multiple-cursors
@@ -111,7 +107,7 @@
   (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
   )
 
-
+;; Highlight similar text
 (use-package highlight-thing
   :ensure t
   :init
@@ -126,3 +122,8 @@
   :ensure t
   :init
   (global-set-key (kbd "C-'") 'toggle-quotes))
+
+
+;; Show matching parens
+(setq show-paren-delay 0)
+(show-paren-mode 1)
