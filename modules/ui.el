@@ -1,5 +1,3 @@
-
-
 ;; Minimal UI
 (scroll-bar-mode -1)
 (tool-bar-mode   -1)
@@ -18,6 +16,7 @@
   :init
   ;; Set the title
   (setq dashboard-banner-logo-title "...and here we are again.")
+  (setq dashboard-startup-banner (expand-file-name "./img/zombie.png" user-emacs-directory))
   ;; Items
   (setq dashboard-items '((recents  . 5)
                         (projects . 5)

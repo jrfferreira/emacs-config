@@ -1,4 +1,9 @@
 ;;; Package configs
+
+(defvar default-shell "/bin/zsh")
+(defvar default-shell-env-file "~/.zshenv")
+
+
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
@@ -15,18 +20,17 @@
 ;; [General changes]
 
 ;; Defining ZSH as default shell
-(defvar default-shell "/bin/zsh")
 (setenv "SHELL" default-shell)
 (setq-default explicit-shell-file-name default-shell)
 
 ;; Ensuring user shell vars
-(use-package exec-path-from-shell
-  :ensure t
-  :if (memq window-system '(mac ns x))
-  :init
-  (setq exec-path-from-shell-shell-name default-shell)
-  :config
-  (exec-path-from-shell-initialize))
+(let ((path (shell-command-to-string (concat ". " default-shell-env-file "; echo -n $PATH"))))
+  (setenv "PATH" path)
+  (setq exec-path 
+        (append
+         (split-string-and-unquote path ":")
+         exec-path)))
+
 
 ;; Avoid lock files
 (setq create-lockfiles nil)
@@ -37,13 +41,17 @@
 (setq create-lockfiles nil)
 
 ;; [Modules]
-(load-file (expand-file-name "./modules/core.el" user-emacs-directory))
-(load-file (expand-file-name "./modules/ui.el" user-emacs-directory))
-(load-file (expand-file-name "./modules/keybinding.el" user-emacs-directory))
+(add-to-list 'load-path (concat user-emacs-directory "modules"))
+
+(require 'core)
+(require 'ui)
+(require 'keybinding)
 
 ;; [Languages]
-(load-file (expand-file-name "./lang/javascript.el" user-emacs-directory))
-(load-file (expand-file-name "./lang/yaml.el" user-emacs-directory))
+(add-to-list 'load-path (concat user-emacs-directory "lang"))
+
+(require 'javascript)
+(require 'yaml)
 
 ;; Auto generated
 (custom-set-variables
