@@ -2,10 +2,11 @@
 
 (use-package undo-tree
   :ensure t
-  :bind (("C-_" . 'undo-tree-undo)
-	 ("M-_" . 'undo-tree-redo))
   :config
   (global-undo-tree-mode))
+
+(use-package restclient
+  :ensure t)
 
 ;; Helm
 (use-package helm
@@ -60,12 +61,13 @@
   ;; https://github.com/company-mode/company-mode/issues/528
   (with-eval-after-load 'company
     (add-to-list 'company-transformers 'delete-consecutive-dups t))
-  (setq company-idle-delay 0.1)
+  (setq company-idle-delay 0)
   (setq company-tooltip-align-annotations t)
+  ;;(setq company-minimum-prefix-length 2)
   :config
   (global-company-mode t)
-  ; Use tab key to cycle through suggestions.
-; ('tng' means 'tab and go')
+  ;; Use tab key to cycle through suggestions.
+  ;; ('tng' means 'tab and go')
   (company-tng-configure-default))
 
 
@@ -130,10 +132,16 @@
   (global-highlight-thing-mode))
 
 
+(use-package autopair
+  :ensure t
+  :config
+  (autopair-global-mode))
+
+
 (use-package toggle-quotes
   :ensure t
-  :init
-  (global-set-key (kbd "C-'") 'toggle-quotes))
+  :bind
+  ("C-'" . 'toggle-quotes))
 
 
 ;; Show matching parens
@@ -141,3 +149,4 @@
 (show-paren-mode 1)
 
 (provide 'core)
+

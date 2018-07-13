@@ -1,5 +1,12 @@
 ;; Custom keybinding
 
+;; Ensuring alt as meta
+(setq-default mac-option-key-is-meta t
+      mac-command-key-is-meta nil
+      mac-command-modifier 'none
+      mac-option-modifier 'meta
+      mac-right-option-modifier nil)
+
 ;; Which Key
 (use-package which-key
   :ensure t

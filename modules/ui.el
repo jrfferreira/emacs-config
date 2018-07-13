@@ -1,3 +1,5 @@
+
+
 ;; Minimal UI
 (scroll-bar-mode -1)
 (tool-bar-mode   -1)
@@ -6,6 +8,20 @@
 (global-hl-line-mode t)
 (global-display-line-numbers-mode t)
 (setq display-line-numbers "%4d ")
+(setq inhibit-startup-screen t)
+
+;; Initial screen
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  :init
+  ;; Set the title
+  (setq dashboard-banner-logo-title "...and here we are again.")
+  ;; Items
+  (setq dashboard-items '((recents  . 5)
+                        (projects . 5)
+                        (agenda . 5))))
 
 
 ;; prefer vertical split

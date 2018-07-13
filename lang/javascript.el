@@ -6,6 +6,30 @@
   :ensure t)
 
 
+(use-package tide
+  :ensure t
+  :after (company flycheck))
+
+;; In case of no result of eslint, check the config:
+;; $  eslint --print-config .
+;; Tide / JS
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (eldoc-mode +1)
+  (company-mode +1)
+  ;; (tide-hl-identifier-mode +1)
+  (setq
+   ;; flycheck-check-syntax-automatically '(save mode-enabled)
+   tide-format-options '(:indentSize 2 :indentStyle 2 :tabSize 2 :ConvertTabsToSpaces t)
+   tide-tsserver-executable "/usr/local/bin/tsserver"
+   tide-completion-detailed t
+     tide-always-show-documentation t
+     )
+    )
+
+
 (defun init-flycheck ()
   (interactive)
   (use-package flycheck-flow
@@ -47,7 +71,7 @@
   :ensure t)
 
 (use-package rjsx-mode
-  :after (company flycheck prettier-js)
+  :after (company flycheck tide prettier-js)
   :ensure t
   :init
   (setq
@@ -61,6 +85,7 @@
   (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
   (add-hook 'rjsx-mode-hook #'set-flow-executable)
+  (add-hook 'rjsx-mode-hook #'setup-tide-mode)
   (add-hook 'rjsx-mode-hook #'init-company-flow)
   (add-hook 'rjsx-mode-hook #'init-flycheck)
   (add-hook 'rjsx-mode-hook #'prettier-js-mode))
