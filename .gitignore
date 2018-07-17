@@ -1,0 +1,21 @@
+# osx
+.DS_Store
+
+# Compiled
+*.elc
+
+# Packaging
+.cask
+
+# Backup files
+*~
+
+# Undo-tree save-files
+*.~undo-tree
+
+# Config files
+elpa/
+.mc-lists.el
+projectile.cache
+projectile-bookmarks.eld
+recentf
