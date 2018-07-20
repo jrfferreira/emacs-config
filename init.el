@@ -50,9 +50,9 @@
 ;; [Languages]
 (add-to-list 'load-path (concat user-emacs-directory "lang"))
 
-(require 'javascript)
-(require 'yaml)
-(require 'python)
+(require 'lang-javascript)
+(require 'lang-yaml)
+(require 'lang-python)
 
 ;; Auto generated
 (custom-set-variables

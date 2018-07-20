@@ -28,9 +28,9 @@
   helm-autoresize-min-height 20)
   :config
   (helm-mode 1)
-  :bind (("C-x C-f" . 'helm-find-files)
-	 ("C-x b" . 'helm-buffers-list)
-	 ("M-x" . 'helm-M-x)
+  :bind (("C-x C-f" . #'helm-find-files)
+	 ("C-x b" . #'helm-buffers-list)
+	 ("M-x" . #'helm-M-x)
 	 :map helm-map
 	 ("TAB" . #'helm-execute-persistent-action)
 	 ("<tab>" . #'helm-execute-persistent-action)
@@ -106,10 +106,10 @@
   :ensure t
   :init
   :config
-  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-M-<") 'mc/mark-all-like-this)
-  (global-set-key (kbd "C-M->") 'mc/edit-lines)
+  (global-set-key (kbd "C->") #'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") #'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-M-<") #'mc/mark-all-like-this)
+  (global-set-key (kbd "C-M->") #'mc/edit-lines)
   (defun mc/mouse-quit ()
     "Deactivate mark if there are any active, and exit multiple-cursors-mode."
     (interactive)
@@ -118,7 +118,7 @@
     (multiple-cursors-mode 0))
   (global-set-key (kbd "<down-mouse-1>") #'mc/mouse-quit)
   (global-unset-key (kbd "C-S-<down-mouse-1>"))
-  (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
+  (global-set-key (kbd "C-S-<mouse-1>") #'mc/add-cursor-on-click)
   )
 
 ;; Highlight similar text

@@ -4,4 +4,4 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
 
-(provide 'yaml)
+(provide 'lang-yaml)

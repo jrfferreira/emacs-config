@@ -91,5 +91,5 @@
   (add-hook 'rjsx-mode-hook #'prettier-js-mode))
 
 
-(provide 'javascript)
+(provide 'lang-javascript)
 ;;; javascript.el ends here
