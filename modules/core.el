@@ -1,3 +1,4 @@
+
 ;;; Core modules
 
 (use-package undo-tree
@@ -6,6 +7,9 @@
   (global-undo-tree-mode))
 
 (use-package restclient
+  :ensure t)
+
+(use-package multi-term
   :ensure t)
 
 ;; Helm
@@ -42,7 +46,6 @@
   :config
   (helm-projectile-on))
 
-
 (use-package ranger
   :ensure t)
 
@@ -52,10 +55,11 @@
   :config
   (global-flycheck-mode))
 
-
 ;; Company
 (use-package company
   :ensure t
+  :bind(:map company-active-map
+	     ("RET" . #'company-complete-selection))
   :init
    ;; Delete consecutive dupes from company in case they differ by annotation only
   ;; https://github.com/company-mode/company-mode/issues/528
@@ -69,7 +73,6 @@
   ;; Use tab key to cycle through suggestions.
   ;; ('tng' means 'tab and go')
   (company-tng-configure-default))
-
 
 (use-package projectile
   :ensure t
@@ -91,7 +94,6 @@
   :init
   :config
   (global-git-gutter-mode t))
-
 
 (use-package indent-guide
   :ensure t
@@ -132,10 +134,12 @@
   (global-highlight-thing-mode))
 
 
-(use-package autopair
+(use-package smartparens
   :ensure t
+  :init
+  (require 'smartparens-config)
   :config
-  (autopair-global-mode))
+  (smartparens-global-mode))
 
 
 (use-package toggle-quotes

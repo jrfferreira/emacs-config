@@ -26,7 +26,7 @@
 ;; Ensuring user shell vars
 (let ((path (shell-command-to-string (concat ". " default-shell-env-file "; echo -n $PATH"))))
   (setenv "PATH" path)
-  (setq exec-path 
+  (setq exec-path
         (append
          (split-string-and-unquote path ":")
          exec-path)))
@@ -42,7 +42,7 @@
 
 ;; [Modules]
 (add-to-list 'load-path (concat user-emacs-directory "modules"))
-
+(require 'utils)
 (require 'core)
 (require 'ui)
 (require 'keybinding)
@@ -63,7 +63,7 @@
  '(flycheck-javascript-flow-args nil)
  '(package-selected-packages
    (quote
-    (blacken dashboard restclient autopair git-timemachine doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter helm-ag helm-projectile toggle-quotes doom-themes use-package))))
+    (multi-term rainbow-mode beacon blacken dashboard restclient git-timemachine doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter helm-ag helm-projectile toggle-quotes doom-themes use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
