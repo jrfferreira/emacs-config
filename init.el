@@ -1,3 +1,4 @@
+
 ;;; Package configs
 
 (defvar default-shell "/bin/zsh")
@@ -42,6 +43,7 @@
 
 ;; [Modules]
 (add-to-list 'load-path (concat user-emacs-directory "modules"))
+
 (require 'utils)
 (require 'core)
 (require 'ui)
@@ -53,6 +55,7 @@
 (require 'lang-javascript)
 (require 'lang-yaml)
 (require 'lang-python)
+(require 'lang-markdown)
 
 ;; Auto generated
 (custom-set-variables
@@ -63,7 +66,7 @@
  '(flycheck-javascript-flow-args nil)
  '(package-selected-packages
    (quote
-    (multi-term rainbow-mode beacon blacken dashboard restclient git-timemachine doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter helm-ag helm-projectile toggle-quotes doom-themes use-package))))
+    (markdown-mode multi-term rainbow-mode beacon blacken dashboard restclient git-timemachine doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter helm-ag helm-projectile toggle-quotes doom-themes use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

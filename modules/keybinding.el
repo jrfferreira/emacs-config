@@ -19,13 +19,15 @@
 (if (eq system-type "darwin")
   (global-set-key (kbd "s-q") 'save-buffers-kill-terminal)
   (global-set-key (kbd "s-v") 'yank)
-  (global-set-key (kbd "s-c") 'evil-yank)
+  (global-set-key (kbd "s-c") 'kill-ring-save)
   (global-set-key (kbd "s-a") 'mark-whole-buffer)
+  (global-set-key (kbd "s-f") 'isearch-forward)
   (global-set-key (kbd "s-x") 'kill-region)
   (global-set-key (kbd "s-w") 'delete-window)
   (global-set-key (kbd "s-W") 'delete-frame)
   (global-set-key (kbd "s-n") 'make-frame)
   (global-set-key (kbd "s-z") 'undo-tree-undo)
+  (global-set-key (kbd "s-<return>") 'toggle-frame-fullscreen)
   (global-set-key (kbd "s-s")
                   (lambda ()
                     (interactive)
@@ -75,7 +77,9 @@
    "bd" '(kill-this-buffer :which-key "kill active buffer")
    "be" '(eval-buffer :which-key "eval buffer")
    "bN" '(utils-create-scratch-buffer :which-key "new buffer")
-
+   "bi" '(helm-imenu :which-key "helm-imenu")
+   "bR" '(query-replace :which-key "replace in buffer (M-%)")
+   
    "r" 'ranger
 
    "t" '(:which-key "term")

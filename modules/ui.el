@@ -5,6 +5,7 @@
 (menu-bar-mode   -1)
 (global-hl-line-mode t)
 (global-display-line-numbers-mode t)
+(setq inhibit-default-init t)
 (setq display-line-numbers "%4d ")
 (setq inhibit-startup-screen t)
 
@@ -37,8 +38,8 @@
 ;; Fancy titlebar for MacOS
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(setq ns-use-proxy-icon  nil)
-(setq frame-title-format nil)
+(setq ns-use-proxy-icon nil)
+(setq frame-title-format "%b")
 
 
 ;; Theme
@@ -55,10 +56,10 @@
       :defer t
       :hook (after-init . doom-modeline-init))
 
-(use-package beacon
-  :ensure t
-  :config
-  (beacon-mode 1))
+;; (use-package beacon
+;;   :ensure t
+;;   :config
+;;   (beacon-mode 1))
 
 (use-package rainbow-mode
   :ensure t
