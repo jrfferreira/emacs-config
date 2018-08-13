@@ -16,6 +16,7 @@
   :config
   (which-key-mode 1))
 
+;; OSX Bindings
 (if (eq system-type "darwin")
   (global-set-key (kbd "s-q") 'save-buffers-kill-terminal)
   (global-set-key (kbd "s-v") 'yank)
@@ -33,7 +34,20 @@
                     (interactive)
                     (call-interactively (key-binding "\C-x\C-s"))))
   (global-set-key (kbd "s-Z") 'undo-tree-redo)
-)
+  )
+
+;; shit+click to extend selected region
+(define-key global-map (kbd "<S-mouse-1>") 'mouse-set-point)
+(define-key global-map (kbd "<S-down-mouse-1>") 'mouse-save-then-kill)
+
+
+;; Easily moving between frames
+(define-key global-map (kbd "s-]") 'next-multiframe-window)
+(define-key global-map (kbd "s-[") 'previous-multiframe-window)
+
+;; Ignoring suspende
+(global-set-key (kbd "C-z") nil)
+(global-set-key (kbd "C-x C-z") nil)
 
 ;; General
 (use-package general

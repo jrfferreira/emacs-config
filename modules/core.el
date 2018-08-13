@@ -155,9 +155,4 @@
 ;; replace selected region
 (delete-selection-mode 1)
 
-;; shit+click to extend selected region
-(define-key global-map (kbd "<S-mouse-1>") 'mouse-set-point)
-(define-key global-map (kbd "<S-down-mouse-1>") 'mouse-save-then-kill)
-
 (provide 'core)
-

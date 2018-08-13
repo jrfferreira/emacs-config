@@ -56,11 +56,6 @@
       :defer t
       :hook (after-init . doom-modeline-init))
 
-;; (use-package beacon
-;;   :ensure t
-;;   :config
-;;   (beacon-mode 1))
-
 (use-package rainbow-mode
   :ensure t
   :init
