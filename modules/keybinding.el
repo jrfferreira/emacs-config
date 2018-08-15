@@ -101,12 +101,7 @@
    "t]" '(multi-term-next :which-key "next term")
    "t[" '(multi-term-prev :which-key "prev term")
    
-   "w" '(:which-key "window")
-   "w]" '(next-multiframe-window :which-key "next window")
-   "w[" '(previous-multiframe-window :which-key "previous window")
-   "w/" '(split-window-right :which-key "split right")
-   "w-" '(split-window-below :which-key "split bottom")
-   "wd" '(delete-window :which-key "delete window")
+   "w" '('ace-window :which-key "ace-window")
    ))
 
 (provide 'keybinding)
