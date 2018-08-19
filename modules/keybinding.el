@@ -14,7 +14,8 @@
   (setq which-key-separator " ")
   (setq which-key-prefix-prefix "+")
   :config
-  (which-key-mode 1))
+  (which-key-mode 1)
+  (which-key-setup-side-window-right))
 
 ;; OSX Bindings
 (if (eq system-type "darwin")
@@ -102,6 +103,17 @@
    "t[" '(multi-term-prev :which-key "prev term")
    
    "w" '('ace-window :which-key "ace-window")
+   ;; "wx" '(:which-key "delete window")
+   ;; "wm" '(:which-key "swap windows")
+   ;; "wM" '(:which-key "move window")
+   ;; "wj" '(:which-key "select buffer")
+   ;; "wn" '(:which-key "swith to previous window")
+   ;; "wu" '(:which-key "switch buffer other window")
+   ;; "wc" '(:which-key "split fair window")
+   ;; "wv" '(:which-key "split vert window")
+   ;; "wb" '(:which-key "split horz window")
+   ;; "wo" '(:which-key "delete other windows")
+   ;; "w?" '(:which-key "show command bindings")
    ))
 
 (provide 'keybinding)
