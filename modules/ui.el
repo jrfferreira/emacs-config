@@ -41,13 +41,6 @@
 (setq ns-use-proxy-icon nil)
 (setq frame-title-format "%b")
 
-(use-package ace-window
-  :ensure t
-  :init
-  (setq aw-scope 'frame)
-  :config
-  (ace-window-display-mode t))
-
 ;; Theme
 (use-package doom-themes
   :ensure t
