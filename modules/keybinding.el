@@ -15,7 +15,7 @@
   (setq which-key-prefix-prefix "+")
   :config
   (which-key-mode 1)
-  (which-key-setup-side-window-right))
+  (which-key-setup-side-window-right-bottom))
 
 ;; OSX Bindings
 (if (eq system-type "darwin")
@@ -62,6 +62,11 @@
    "!" '(:which-key "flycheck")
    "$" '(:which-key "correct word")
 
+   "d" '(:which-key "helm-dash")
+   "dd" '(helm-dash :which-key "search")
+   "di" '(helm-dash-install-docset :which-key "install-docset")
+   "dD" '(helm-dash-at-point :which-key "search-at-point")
+
    "e" '(:which-key "checks")
    "el" '(flycheck-list-errors :which-key "list errors")
 
@@ -75,13 +80,15 @@
    "fk" '(delete-file :which-key "delete file")
    "fd" '(utils-delete-file-and-buffer :which-key "delete active file")
    "fR" '(utils-rename-file-and-buffer :which-key "rename active file")
+   "fy" '(utils-copy-file-name-to-clipboard :which-key "copy file name")
    "fe" '(:which-key "emacs")
    "fed" '(utils-open-user-init-file :which-key "init file")
    
    "p" '(:which-key "project")
-   "pf" '(helm-projectile-find-file)
-   "pp" '(helm-projectile-switch-project)
-   "ps" '(:which-key "search")
+   "ph" '(helm-projectile :which-key "projectile")
+   "pf" '(helm-projectile-find-file :which-key "find file")
+   "pp" '(helm-projectile-switch-project :which-key "switch project")
+   "ps" '(helm-projectile-ag :which-key "search")
    "px" '(:which-key "shell")
 	  
    "b" '(:which-key "buffers")

@@ -9,6 +9,9 @@
 (setq display-line-numbers "%4d ")
 (setq inhibit-startup-screen t)
 
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+
 ;; Initial screen
 (use-package dashboard
   :ensure t
@@ -32,14 +35,20 @@
 ;; Font and sizes
 (add-to-list 'default-frame-alist '(font . "Fira Code Retina 16"))
 (add-to-list 'default-frame-alist '(height . 30))
+(add-to-list 'default-frame-alist '(wheight . 'normal))
 (add-to-list 'default-frame-alist '(width . 90))
 
+;; Disabling bold faces
+(mapc
+   (lambda (face)
+     (set-face-attribute face nil :weight 'normal))
+   (face-list))
 
 ;; Fancy titlebar for MacOS
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 (setq ns-use-proxy-icon nil)
-(setq frame-title-format "%b")
+(setq frame-title-format "")
 
 ;; Theme
 (use-package doom-themes
@@ -48,7 +57,7 @@
   (setq doom-themes-enable-bold nil
         doom-themes-enable-italic nil)
   :config
-  (load-theme 'doom-one t))
+  (load-theme 'doom-vibrant t))
 
 (use-package doom-modeline
       :ensure t
