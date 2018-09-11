@@ -4,7 +4,8 @@
 (tooltip-mode    -1)
 (menu-bar-mode   -1)
 (global-hl-line-mode t)
-(global-display-line-numbers-mode t)
+;;(global-display-line-numbers-mode t)
+(add-hook 'prog-mode-hook 'linum-mode)
 (setq inhibit-default-init t)
 (setq display-line-numbers "%4d ")
 (setq inhibit-startup-screen t)
@@ -56,6 +57,9 @@
   :init
   (setq doom-themes-enable-bold nil
         doom-themes-enable-italic nil)
+  (doom-themes-visual-bell-config)
+  (doom-themes-neotree-config)
+  (doom-themes-org-config)
   :config
   (load-theme 'doom-vibrant t))
 

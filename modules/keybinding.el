@@ -79,7 +79,7 @@
    "ff" '(helm-find-files :which-key "find file")
    "fk" '(delete-file :which-key "delete file")
    "fd" '(utils-delete-file-and-buffer :which-key "delete active file")
-   "fR" '(utils-rename-file-and-buffer :which-key "rename active file")
+   "fr" '(utils-rename-file-and-buffer :which-key "rename active file")
    "fy" '(utils-copy-file-name-to-clipboard :which-key "copy file name")
    "fe" '(:which-key "emacs")
    "fed" '(utils-open-user-init-file :which-key "init file")
@@ -97,8 +97,9 @@
    "bk" '(kill-buffer :which-key "kill buffer")
    "bb" '(helm-buffers-list :which-key "buffers list")
    "bd" '(kill-this-buffer :which-key "kill active buffer")
+   "bD" '(utils-kill-other-buffers :which-key "kill other buffers")
    "be" '(eval-buffer :which-key "eval buffer")
-   "bN" '(utils-create-scratch-buffer :which-key "new buffer")
+   "bn" '(utils-create-scratch-buffer :which-key "new buffer")
    "bi" '(helm-imenu :which-key "helm-imenu")
    "bR" '(query-replace :which-key "replace in buffer (M-%)")
    
@@ -115,6 +116,8 @@
    "w/" '(split-window-right :which-key "split right")
    "w-" '(split-window-below :which-key "split bottom")
    "wd" '(delete-window :which-key "delete window")
+   "wD" '(delete-other-windows :which-key "delete other window")
+   "wf" '(utils-window-focus :which-key "focus active window")
    ))
 
 (provide 'keybinding)

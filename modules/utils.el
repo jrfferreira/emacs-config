@@ -49,4 +49,25 @@
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
+(defun utils-window-focus ()
+  "Close other windows to focus on this one. Activate again to undo this."
+  (interactive)
+  (if (and (one-window-p)
+           (assoc ?_ register-alist))
+      (jump-to-register ?_)
+    (window-configuration-to-register ?_)
+    (delete-other-windows)))
+
+(defun utils-kill-other-buffers ()
+  "Kill all buffers except current one and toolkit (*Messages* and *dashboard*). Close other windows."
+  (interactive)
+  (mapc 'kill-buffer (remove-if
+                       (lambda (x)
+                         (or
+                           (string-equal (buffer-name) (buffer-name x))
+                           (string-equal "*Messages*" (buffer-name x))
+                           (string-equal "*dashboard*" (buffer-name x))))
+                       (buffer-list)))
+  (delete-other-windows))
+
 (provide 'utils)
