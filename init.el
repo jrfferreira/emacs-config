@@ -68,7 +68,7 @@
  '(flycheck-javascript-flow-args nil)
  '(package-selected-packages
    (quote
-    (neotree color-theme-sanityinc-tomorrow exotica-theme helm-dash handlebars-mode zenburn-theme color-theme-solarized color-theme seti-theme company-jedi flymake-json ace-window csv-mode markdown-mode multi-term rainbow-mode beacon blacken dashboard restclient git-timemachine doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter helm-ag helm-projectile toggle-quotes doom-themes use-package))))
+    (dockerfile-mode jinja2-mode color-theme-sanityinc-tomorrow exotica-theme helm-dash handlebars-mode zenburn-theme color-theme-solarized color-theme seti-theme company-jedi flymake-json ace-window csv-mode markdown-mode multi-term rainbow-mode beacon blacken dashboard restclient git-timemachine doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter helm-ag helm-projectile toggle-quotes doom-themes use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
