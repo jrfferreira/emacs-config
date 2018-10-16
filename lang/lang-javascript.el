@@ -1,10 +1,12 @@
 ;;; Javascript --- configuration for Javascript language with Flycheck and Flow
 
-;; RJSX/ELINT
+;; Code: Define javascript mode configs
 
+(defvar where-bin (if (eq system-type "darwin") "/usr/local/bin/" "/usr/bin/"))
+
+;; RJSX/ELINT
 (use-package flow-minor-mode
   :ensure t)
-
 
 (use-package tide
   :ensure t
@@ -23,7 +25,7 @@
   (setq
    ;; flycheck-check-syntax-automatically '(save mode-enabled)
    tide-format-options '(:indentSize 2 :indentStyle 2 :tabSize 2 :ConvertTabsToSpaces t)
-   tide-tsserver-executable "/usr/local/bin/tsserver"
+   tide-tsserver-executable (concat where-bin "tsserver")
    tide-completion-detailed t
      tide-always-show-documentation t
      )
@@ -48,7 +50,7 @@
 ;; flow-company
 (defun set-flow-executable ()
   (interactive)
-  (defvar executable "/usr/local/bin/flow")
+  (defvar executable (concat where-bin "flow"))
   (setq-local company-flow-executable executable)
   ;; These are not necessary for this package, but a good idea if you use
   ;; these other packages
@@ -58,6 +60,7 @@
 (defun init-company-flow ()
   (interactive)
   (use-package company-flow
+    :ensure t
     :after (company flow-minor-mode)
     :defer t
     :commands company-flow

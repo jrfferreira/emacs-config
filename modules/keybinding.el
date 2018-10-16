@@ -19,6 +19,7 @@
 
 ;; OSX Bindings
 (if (eq system-type "darwin")
+  (progn
   (global-set-key (kbd "s-q") 'save-buffers-kill-terminal)
   (global-set-key (kbd "s-v") 'yank)
   (global-set-key (kbd "s-c") 'kill-ring-save)
@@ -34,7 +35,7 @@
                   (lambda ()
                     (interactive)
                     (call-interactively (key-binding "\C-x\C-s"))))
-  (global-set-key (kbd "s-Z") 'undo-tree-redo)
+  (global-set-key (kbd "s-Z") 'undo-tree-redo))
   )
 
 ;; shit+click to extend selected region

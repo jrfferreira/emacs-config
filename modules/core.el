@@ -1,4 +1,3 @@
-
 ;;; Core modules
 
 (use-package undo-tree
@@ -42,6 +41,7 @@
 	 ))
 
 (use-package helm-projectile
+  :ensure t
   :after (helm)
   :config
   (helm-projectile-on))
@@ -83,7 +83,6 @@
   (setq projectile-require-project-root nil)
   :config
   (projectile-mode 1))
-
 
 (use-package magit
   :ensure t
