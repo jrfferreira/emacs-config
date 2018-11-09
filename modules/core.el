@@ -46,8 +46,9 @@
   :config
   (helm-projectile-on))
 
-(use-package helm-dash
-  :after (helm))
+;; (use-package helm-dash
+;;   :ensure t
+;;   :after (helm))
 
 (use-package ranger
   :ensure t)

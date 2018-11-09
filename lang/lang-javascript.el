@@ -35,6 +35,7 @@
 (defun init-flycheck ()
   (interactive)
   (use-package flycheck-flow
+    :ensure t
     :after (flycheck flow-minor-mode)
     :config
     (flycheck-add-next-checker 'javascript-flow 'javascript-eslint)
