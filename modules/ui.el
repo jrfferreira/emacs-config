@@ -49,7 +49,7 @@
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 (setq ns-use-proxy-icon nil)
-(setq frame-title-format "")
+(setq frame-title-format "%b")
 
 ;; Theme
 (use-package doom-themes
