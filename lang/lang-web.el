@@ -2,15 +2,15 @@
 
 (use-package web-mode
   :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.jinja[2]\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-  )
+  :mode (("\\.[agj]sp\\'" . web-mode)
+         ("\\.as[cp]x\\'" . web-mode)
+         ("\\.djhtml\\'" . web-mode)
+         ("\\.erb\\'" . web-mode)
+         ("\\.jinja2?\\'" . web-mode)
+         ("\\.mustache\\'" . web-mode)
+         ("\\.phtml\\'" . web-mode)
+         ("\\.php\\'" . web-mode)
+         ("\\.tpl\\'" . web-mode)))
 
 (provide 'lang-web)
+;;; lang-web ends here
