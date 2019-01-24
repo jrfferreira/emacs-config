@@ -20,6 +20,7 @@
   (dashboard-setup-startup-hook)
   :init
   ;; Set the title
+  (setq show-week-agenda-p t)
   (setq dashboard-banner-logo-title "...and here we are again.")
   (setq dashboard-startup-banner (expand-file-name "./img/zombie.png" user-emacs-directory))
   ;; Items
