@@ -1,4 +1,3 @@
-
 ;;; Core modules
 
 (use-package undo-tree
@@ -45,10 +44,13 @@
   :ensure t
   :after (helm)
   :init
-  (setq helm-projectile-fuzzy-match t
-	projectile-enable-caching t
+  (setq projectile-completion-system 'helm
+	helm-projectile-fuzzy-match t
+	projectile-indexing-method 'alien
+	projectile-enable-caching nil
 	projectile-switch-project-action 'helm-projectile-find-file)
   :config
+  (projectile-global-mode)
   (helm-projectile-on))
 
 ;; (use-package helm-dash
