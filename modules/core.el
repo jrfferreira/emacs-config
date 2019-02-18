@@ -48,7 +48,7 @@
 	helm-projectile-fuzzy-match t
 	projectile-indexing-method 'alien
 	projectile-enable-caching nil
-	projectile-switch-project-action 'helm-projectile-find-file)
+	projectile-switch-project-action 'helm-projectile)
   :config
   (projectile-global-mode)
   (helm-projectile-on))

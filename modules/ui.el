@@ -19,7 +19,7 @@
   :config
   (dashboard-setup-startup-hook)
   :init
-  ;; Set the title
+  ;;(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
   (setq show-week-agenda-p t)
   (setq dashboard-banner-logo-title "...and here we are again.")
   (setq dashboard-startup-banner (expand-file-name "./img/zombie.png" user-emacs-directory))
@@ -35,7 +35,7 @@
 
 
 ;; Font and sizes
-(add-to-list 'default-frame-alist '(font . "Fira Code Retina 15"))
+(add-to-list 'default-frame-alist '(font . "Fira Code Retina 14"))
 (add-to-list 'default-frame-alist '(height . 30))
 (add-to-list 'default-frame-alist '(wheight . 'normal))
 (add-to-list 'default-frame-alist '(width . 90))
