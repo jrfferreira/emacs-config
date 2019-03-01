@@ -3,7 +3,6 @@
 (defvar default-shell "/bin/zsh")
 (defvar default-shell-env-file "~/.zshenv")
 
-
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
@@ -22,6 +21,20 @@
 ;; Defining ZSH as default shell
 (setenv "SHELL" default-shell)
 (setq-default explicit-shell-file-name default-shell)
+
+;; Using keychain env
+"Set the environment variables `SSH_AUTH_SOCK' and `SSH_AGENT_PID'
+ in Emacs' `process-environment' according to information retrieved 
+ from files created by the keychain script."
+  
+(let* ((ssh (shell-command-to-string "keychain -q --noask --agents ssh --eval")))
+  (list (and ssh
+             (string-match "SSH_AUTH_SOCK[=\s]\\([^\s;\n]*\\)" ssh)
+             (setenv       "SSH_AUTH_SOCK" (match-string 1 ssh)))
+        (and ssh
+             (string-match "SSH_AGENT_PID[=\s]\\([0-9]*\\)?" ssh)
+             (setenv       "SSH_AGENT_PID" (match-string 1 ssh)))))
+
 
 ;; Ensuring user shell PATH
 (let ((path (shell-command-to-string (concat ". " default-shell-env-file "; echo -n $PATH"))))
@@ -74,7 +87,7 @@
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (helm-rg org-agenda org-gcal org-g org-cal list-environment web-mode dockerfile-mode helm-dash handlebars-mode zenburn-theme color-theme-solarized color-theme seti-theme company-jedi flymake-json ace-window csv-mode markdown-mode multi-term rainbow-mode beacon blacken dashboard restclient git-timemachine doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter helm-ag helm-projectile toggle-quotes doom-themes use-package))))
+    (nginx-mode org-agenda org-gcal org-g org-cal list-environment web-mode dockerfile-mode helm-dash handlebars-mode zenburn-theme color-theme-solarized color-theme seti-theme company-jedi flymake-json ace-window csv-mode markdown-mode multi-term rainbow-mode beacon blacken dashboard restclient git-timemachine doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter helm-ag helm-projectile toggle-quotes doom-themes use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
