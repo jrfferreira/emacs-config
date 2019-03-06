@@ -104,7 +104,7 @@
    
    "p" '(:which-key "project")
    "ph" '(helm-projectile :which-key "projectile")
-   "pf" '(helm-projectile-find-file :which-key "find file")
+   "pf" '(helm-projectile-find-file-dwim :which-key "find file")
    "pp" '(helm-projectile-switch-project :which-key "switch project")
    "ps" '(helm-projectile-ag :which-key "search")
    "px" '(:which-key "shell")

@@ -47,7 +47,7 @@
   (setq projectile-completion-system 'helm
 	helm-projectile-fuzzy-match t
 	projectile-indexing-method 'alien
-	projectile-enable-caching nil
+	projectile-enable-caching t
 	projectile-switch-project-action 'helm-projectile)
   :config
   (projectile-global-mode)
