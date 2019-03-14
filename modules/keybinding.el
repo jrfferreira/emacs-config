@@ -114,7 +114,7 @@
    "b[" '(previous-buffer :which-key "previous buffer")
    "bk" '(kill-buffer :which-key "kill buffer")
    "bb" '(helm-buffers-list :which-key "buffers list")
-   "bd" '(kill-this-buffer :which-key "kill active buffer")
+   "bd" '((lambda () (interactive) (kill-buffer (current-buffer))) :which-key "kill active buffer")
    "bD" '(utils-kill-other-buffers :which-key "kill other buffers")
    "be" '(eval-buffer :which-key "eval buffer")
    "bn" '(utils-create-scratch-buffer :which-key "new buffer")

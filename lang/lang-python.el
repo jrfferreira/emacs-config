@@ -10,13 +10,17 @@
 
 (use-package company-jedi
   :ensure t
-  :after (company python)
+  :after (company eldoc flycheck python)
   :init
   (defun my/python-mode-hook ()
+    (flycheck-mode)
+    (eldoc-mode)
+    (company-mode)
+    (sphinx-doc-mode)
+    (python-docstring-mode)
     (add-to-list 'company-backends 'company-jedi))
-  (add-hook 'python-mode-hook 'my/python-mode-hook)
+  (add-hook 'python-mode-hook #'my/python-mode-hook)
   :bind (:map python-mode-map ("M-." . 'jedi:goto-definition)))
-  
 
 (provide 'lang-python)
 ;;; python.el ends here
