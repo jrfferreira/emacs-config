@@ -120,6 +120,7 @@
    "bn" '(utils-create-scratch-buffer :which-key "new buffer")
    "bi" '(helm-imenu :which-key "helm-imenu")
    "bR" '(query-replace :which-key "replace in buffer (M-%)")
+   "bw" '(whitespace-mode :which-key "toggle whitespace-mode")
    
    "r" 'ranger
 

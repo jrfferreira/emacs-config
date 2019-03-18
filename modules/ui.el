@@ -13,6 +13,10 @@
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
+(setq whitespace-style '(face trailing spaces tabs newline tab-mark empty lines-tail))
+(setq whitespace-line-column 120)
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
 ;; Initial screen
 (use-package dashboard
   :ensure t
