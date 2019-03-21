@@ -50,7 +50,7 @@
 	projectile-enable-caching t
 	projectile-switch-project-action 'helm-projectile)
   :config
-  (projectile-global-mode)
+  (projectile-mode)
   (helm-projectile-on))
 
 ;; (use-package helm-dash

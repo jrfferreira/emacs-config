@@ -1,6 +1,6 @@
 ;;; Package configs
 
-(defvar default-shell "/bin/zsh")
+(defvar default-shell "/bin/bash")
 (defvar default-shell-env-file "~/.zshenv")
 
 (require 'package)
