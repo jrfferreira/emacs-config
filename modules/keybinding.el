@@ -92,7 +92,7 @@
    "gg" '(magit :which-key "magit")
    "gb" '(magit-blame :which-key "magit blame")
    "gh" '(git-timemachine :which-key "history")
-   
+
    "f" '(:which-key "files")
    "ff" '(helm-find-files :which-key "find file")
    "fk" '(delete-file :which-key "delete file")
@@ -101,34 +101,34 @@
    "fy" '(utils-copy-file-name-to-clipboard :which-key "copy file name")
    "fe" '(:which-key "emacs")
    "fed" '(utils-open-user-init-file :which-key "init file")
-   
+
    "p" '(:which-key "project")
    "ph" '(helm-projectile :which-key "projectile")
-   "pf" '(helm-projectile-find-file-dwim :which-key "find file")
+   "pf" '(helm-projectile-find-file :which-key "find file")
    "pp" '(helm-projectile-switch-project :which-key "switch project")
    "ps" '(helm-projectile-ag :which-key "search")
    "px" '(:which-key "shell")
-	  
+
    "b" '(:which-key "buffers")
    "b]" '(next-buffer :which-key "next buffer")
    "b[" '(previous-buffer :which-key "previous buffer")
    "bk" '(kill-buffer :which-key "kill buffer")
    "bb" '(helm-buffers-list :which-key "buffers list")
-   "bd" '((lambda () (interactive) (kill-buffer (current-buffer))) :which-key "kill active buffer")
+   "bd" '(utils-kill-current-buffer :which-key "kill active buffer")
    "bD" '(utils-kill-other-buffers :which-key "kill other buffers")
    "be" '(eval-buffer :which-key "eval buffer")
    "bn" '(utils-create-scratch-buffer :which-key "new buffer")
    "bi" '(helm-imenu :which-key "helm-imenu")
    "bR" '(query-replace :which-key "replace in buffer (M-%)")
    "bw" '(whitespace-mode :which-key "toggle whitespace-mode")
-   
+
    "r" 'ranger
 
    "t" '(:which-key "term")
    "tt" '(multi-term :which-key "mult-term")
    "t]" '(multi-term-next :which-key "next term")
    "t[" '(multi-term-prev :which-key "prev term")
-   
+
    "w" '(:which-key "window")
    "w]" '(next-multiframe-window :which-key "next window")
    "w[" '(previous-multiframe-window :which-key "previous window")

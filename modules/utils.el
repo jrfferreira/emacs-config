@@ -1,5 +1,11 @@
 ;;; Collection of useful functions for the config
 
+(defun utils-kill-current-buffer ()
+  "Kill the active buffer"
+  (interactive)
+  (kill-buffer (current-buffer))
+  )
+
 (defun utils-open-user-init-file ()
   "Open the `user-init-file` in another screen"
   (interactive)
