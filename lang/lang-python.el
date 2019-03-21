@@ -5,14 +5,16 @@
   :ensure t
   :after (python)
   :init
-  :bind (:map python-mode-map ("C-c C-b" . blacken-buffer))
+  :bind (:map python-mode-map ("C-c C-b" . blacken-buffer)
+  :bind (:map python-mode-map ("C-c C-B" . blacken-mode))
   )
 
 (use-package company-jedi
   :ensure t
-  :after (company eldoc flycheck python)
+  :after (company eldoc flycheck python pyenv-mode python-docstring sphinx-doc)
   :init
   (defun my/python-mode-hook ()
+    (pyenv-mode)
     (flycheck-mode)
     (eldoc-mode)
     (company-mode)

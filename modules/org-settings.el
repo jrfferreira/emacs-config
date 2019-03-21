@@ -1,5 +1,5 @@
-(setq-default org-agenda-files (list "~/MEGAsync/org/gcal.org"
-			       "~/MEGAsync/org/notes.org"))
+;;(setq-default org-agenda-files (list "~/MEGAsync/org/gcal.org"
+;;			       "~/MEGAsync/org/notes.org"))
 
 (use-package org-gcal
   :ensure t
