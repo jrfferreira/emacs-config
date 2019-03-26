@@ -157,6 +157,11 @@
   :bind
   ("C-'" . 'toggle-quotes))
 
+(use-package editorconfig-mode
+  :ensure t
+  :init
+  (add-hook 'prog-mode-hook 'editorconfig-mode))
+
 
 ;; Show matching parens
 (setq show-paren-delay 0)

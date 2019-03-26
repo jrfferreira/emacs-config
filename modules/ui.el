@@ -39,7 +39,6 @@
 
 
 ;; Font and sizes
-(add-to-list 'default-frame-alist '(font . "Fira Code Retina 11"))
 (add-to-list 'default-frame-alist '(height . 30))
 (add-to-list 'default-frame-alist '(wheight . 'normal))
 (add-to-list 'default-frame-alist '(width . 90))
