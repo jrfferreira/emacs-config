@@ -68,7 +68,11 @@
     :init
      (with-eval-after-load 'company
        (add-to-list 'company-backends 'company-flow))
-    ))
+     ))
+
+(defun init-js-indent-line ()
+  (interactive)
+  (setq-local indent-line-function 'js-jsx-indent-line))
 
 
 (use-package prettier-js
@@ -83,6 +87,7 @@
    js2-mode-show-parse-errors nil
    js-indent-level 2
    js2-basic-offset 2
+   sgml-basic-offset 2
    js2-strict-trailing-comma-warning nil
    js2-strict-missing-semi-warning nil)
 
@@ -92,7 +97,8 @@
   (add-hook 'rjsx-mode-hook #'setup-tide-mode)
   (add-hook 'rjsx-mode-hook #'init-company-flow)
   (add-hook 'rjsx-mode-hook #'init-flycheck)
-  (add-hook 'rjsx-mode-hook #'prettier-js-mode))
+  (add-hook 'rjsx-mode-hook #'prettier-js-mode)
+  (add-hook 'rjsx-mode-hook #'init-js-indent-line))
 
 
 (provide 'lang-javascript)
