@@ -5,7 +5,7 @@
   :after (python)
   :init
   :bind (:map python-mode-map ("C-c C-b" . blacken-buffer)
-  :bind (:map python-mode-map ("C-c C-B" . blacken-mode))
+	      ("C-c C-S-b" . blacken-mode))
   )
 
 (use-package company-jedi

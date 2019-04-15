@@ -90,7 +90,8 @@
 
    "g" '(:which-key "git")
    "gg" '(magit :which-key "magit")
-   "gb" '(magit-blame :which-key "magit blame")
+   "gb" '(git-messenger:popup-message :which-key "magit blame")
+   "gB" '(magit-blame :which-key "magit blame")
    "gh" '(git-timemachine :which-key "history")
 
    "f" '(:which-key "files")

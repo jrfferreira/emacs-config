@@ -105,6 +105,12 @@
   :config
   (global-git-gutter-mode t))
 
+(use-package git-messenger
+  :ensure t
+  :after (magit magit-popup)
+  :init
+  )
+
 (use-package indent-guide
   :ensure t
   :init
@@ -157,10 +163,10 @@
   :bind
   ("C-'" . 'toggle-quotes))
 
-(use-package editorconfig-mode
+(use-package editorconfig
   :ensure t
-  :init
-  (add-hook 'prog-mode-hook 'editorconfig-mode))
+  :config
+  (editorconfig-mode 1))
 
 
 ;; Show matching parens
