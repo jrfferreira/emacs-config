@@ -141,7 +141,31 @@
    "w-" '(split-window-below :which-key "split bottom")
    "wd" '(delete-window :which-key "delete window")
    "wD" '(delete-other-windows :which-key "delete other window")
-   "wf" '(utils-window-focus :which-key "focus active window")
-   ))
+   "wf" '(utils-window-focus :which-key "focus active window"))
+  
+  (general-define-key
+   :prefix "C-`"
+   "e" '(sp-end-of-sexp :which-key "Go to sexp end")
+   "a" '(sp-beginning-of-sexp :which-key "Go to sexp start")
+   "f" '(sp-forward-sexp :which-key "Move forward")
+   "b" '(sp-backward-sexp :which-key "Move backward")
+   "n" '(sp-next-sexp :which-key "Move next sexp")
+   "p" '(sp-previous-sexp :which-key "Move previous sexp")
+   "t" '(sp-transpose-sexp :which-key "Transpose previous and current sexp")
+   "T"  '(sp-transpose-hybrid-sexp :which-key "Transpose hybrid")
+   "k" '(sp-kill-sexp :which-key "Kill sexp")
+   "w" '(sp-copy-sexp :which-key "Copy sexp")
+   "U" '(sp-backward-unwrap-sexp :which-key "Unwrap backwards")
+   "u" '(sp-unwrap-sexp :which-key "Unwrap")
+   :keymaps 'global
+   "TAB" '(toggle-quotes :which-key "toggle quotes")
+   "\?" '(sp-cheat-sheet :which-key "help")
+   "("  '(wrap-with-parens :which-key "Wrap with ()")
+   "["  '(wrap-with-brackets :which-key "Wrap with []")
+   "{"  '(wrap-with-braces :which-key "Wrap with {}")
+   "'"  '(wrap-with-single-quotes :which-key "Wrap with ''")
+   "\"" '(wrap-with-double-quotes :which-key "Wrap with \"\"")
+   "`"  '(wrap-with-back-quotes :which-key "Wrap with ``"))
+  )
 
 (provide 'keybinding)
