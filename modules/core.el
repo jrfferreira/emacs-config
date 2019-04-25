@@ -58,7 +58,9 @@
 ;;   :after (helm))
 
 (use-package ranger
-  :ensure t)
+  :ensure t
+  :init
+  (setq ranger-show-hidden t))
 
 (use-package flycheck
   :ensure t
