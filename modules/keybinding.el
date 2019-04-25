@@ -36,6 +36,10 @@
                     (interactive)
                     (call-interactively (key-binding "\C-x\C-s"))))
   (global-set-key (kbd "s-Z") 'undo-tree-redo))
+
+  (progn
+   (global-set-key (kbd "M-n") 'make-frame)
+   (global-set-key (kbd "M-<return>") 'toggle-frame-fullscreen))
   )
 
 ;; shit+click to extend selected region
