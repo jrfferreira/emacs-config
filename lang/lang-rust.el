@@ -5,7 +5,7 @@
   :after (flycheck-rust)
   :mode (("\\.rs\\'" . rust-mode))
   
-  :bind (:map python-mode-map
+  :bind (:map rust-mode-map
 	      ("C-c C-f" . rust-format-buffer)
 	      ("C-c C-r" . rust-run)
 	      ("C-c C-c" . rust-compile))
