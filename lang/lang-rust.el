@@ -4,6 +4,11 @@
   :ensure t
   :after (flycheck-rust)
   :mode (("\\.rs\\'" . rust-mode))
+  
+  :bind (:map python-mode-map
+	      ("C-c C-f" . rust-format-buffer)
+	      ("C-c C-r" . rust-run)
+	      ("C-c C-c" . rust-compile))
   :init
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   )

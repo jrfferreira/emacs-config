@@ -76,6 +76,7 @@
 (require 'lang-python)
 (require 'lang-markdown)
 (require 'lang-web)
+(require 'lang-rust)
 
 ;; Auto generated
 (custom-set-variables
