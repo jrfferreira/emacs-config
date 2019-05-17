@@ -157,7 +157,6 @@
    "w" '(sp-copy-sexp :which-key "Copy sexp")
    "U" '(sp-backward-unwrap-sexp :which-key "Unwrap backwards")
    "u" '(sp-unwrap-sexp :which-key "Unwrap")
-   :keymaps 'global
    "TAB" '(toggle-quotes :which-key "toggle quotes")
    "\?" '(sp-cheat-sheet :which-key "help")
    "("  '(wrap-with-parens :which-key "Wrap with ()")

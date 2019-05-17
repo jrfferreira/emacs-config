@@ -126,20 +126,20 @@
   :ensure t
   :init
   :config
-  (global-set-key (kbd "C->") #'mc/mark-next-like-this)
-  (global-set-key (kbd "C-<") #'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-M-<") #'mc/mark-all-like-this)
-  (global-set-key (kbd "C-M->") #'mc/edit-lines)
+  (global-unset-key (kbd "C-S-<down-mouse-1>"))
   (defun mc/mouse-quit ()
     "Deactivate mark if there are any active, and exit multiple-cursors-mode."
     (interactive)
     (if (use-region-p)
         (deactivate-mark))
     (multiple-cursors-mode 0))
-  (global-set-key (kbd "<down-mouse-1>") #'mc/mouse-quit)
-  (global-unset-key (kbd "C-S-<down-mouse-1>"))
-  (global-set-key (kbd "C-S-<mouse-1>") #'mc/add-cursor-on-click)
-  )
+  :bind (
+	 ("C->" . #'mc/mark-next-like-this)
+	 ("C-<" . #'mc/mark-previous-like-this)
+	 ("C-M-<" . #'mc/mark-all-like-this)
+	 ("C-M->" . #'mc/edit-lines)
+	 ("<down-mouse-1>" . #'mc/mouse-quit)
+	 ("C-S-<mouse-1>" . #'mc/add-cursor-on-click)))
 
 ;; Highlight similar text
 (use-package highlight-thing
@@ -199,6 +199,11 @@ respectively."
 ;; Show matching parens
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
 
 ;; replace selected region
 (delete-selection-mode 1)
