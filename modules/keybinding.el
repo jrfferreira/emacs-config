@@ -143,8 +143,9 @@
    "wD" '(delete-other-windows :which-key "delete other window")
    "wf" '(utils-window-focus :which-key "focus active window"))
   
+
   (general-define-key
-   :prefix "C-`"
+   :prefix "C-'"
    "e" '(sp-end-of-sexp :which-key "Go to sexp end")
    "a" '(sp-beginning-of-sexp :which-key "Go to sexp start")
    "f" '(sp-forward-sexp :which-key "Move forward")
@@ -158,7 +159,7 @@
    "U" '(sp-backward-unwrap-sexp :which-key "Unwrap backwards")
    "u" '(sp-unwrap-sexp :which-key "Unwrap")
    "TAB" '(toggle-quotes :which-key "toggle quotes")
-   "\?" '(sp-cheat-sheet :which-key "help")
+   "?" '(sp-cheat-sheet :which-key "help")
    "("  '(wrap-with-parens :which-key "Wrap with ()")
    "["  '(wrap-with-brackets :which-key "Wrap with []")
    "{"  '(wrap-with-braces :which-key "Wrap with {}")

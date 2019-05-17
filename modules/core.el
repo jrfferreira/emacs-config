@@ -154,7 +154,6 @@
 
 (use-package smartparens
   :ensure t
-  :after (toggle-quotes)
   :init
   (require 'smartparens-config)
   :config
@@ -189,11 +188,8 @@ respectively."
 	      (double-quote . "\"")
 	      (back-quote . "`"))))
 
-
-(use-package editorconfig
-  :ensure t
-  :config
-  (editorconfig-mode 1))
+(use-package toggle-quotes
+  :ensure t)
 
 
 ;; Show matching parens
