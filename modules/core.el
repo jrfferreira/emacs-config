@@ -204,4 +204,16 @@ respectively."
 ;; replace selected region
 (delete-selection-mode 1)
 
+
+;; Text scale affecting everything
+(defadvice text-scale-increase (around all-buffers (arg) activate)
+  (dolist (buffer (buffer-list))
+    (with-current-buffer buffer
+      ad-do-it)))
+
+(defadvice text-scale-decrease (around all-buffers (arg) activate)
+  (dolist (buffer (buffer-list))
+    (with-current-buffer buffer
+      ad-do-it)))
+
 (provide 'core)

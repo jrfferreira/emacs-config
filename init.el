@@ -84,15 +84,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(git-messenger:use-magit-popup t)
  '(flycheck-javascript-flow-args nil)
+ '(git-messenger:use-magit-popup t)
  '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (git-messenger editorconfig flycheck-rust rust-mode pyenv-mode sphinx-doc python-docstring docker nginx-mode org-agenda org-gcal org-g org-cal list-environment web-mode dockerfile-mode helm-dash handlebars-mode zenburn-theme color-theme-solarized color-theme seti-theme company-jedi flymake-json ace-window csv-mode markdown-mode multi-term rainbow-mode beacon blacken dashboard restclient git-timemachine doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter helm-ag helm-projectile toggle-quotes doom-themes use-package))))
+    (bnf-mode git-messenger editorconfig flycheck-rust rust-mode pyenv-mode sphinx-doc python-docstring docker nginx-mode org-agenda org-gcal org-g org-cal list-environment web-mode dockerfile-mode helm-dash handlebars-mode zenburn-theme color-theme-solarized color-theme seti-theme company-jedi flymake-json ace-window csv-mode markdown-mode multi-term rainbow-mode beacon blacken dashboard restclient git-timemachine doom-modeline exec-path-from-shell yaml-mode company-tide flycheck-flow company-flow rjsx-mode indent-guide git-gutter helm-ag helm-projectile toggle-quotes doom-themes use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'downcase-region 'disabled nil)
