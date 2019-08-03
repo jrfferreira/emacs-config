@@ -1,4 +1,4 @@
-[Emacs config thumbnail](img/thumb.png)
+![Emacs config thumbnail](img/thumb.png)
 
 # Emacs config
 
