@@ -32,6 +32,14 @@ Link new config:
 ln -s ~/emacs-config ~/.emacs.d
 ```
 
+### Main packages
+
+* Magit
+* Flycheck
+* General
+* Helm
+* Projectile
+
 ### Languages
 
 * Javascript + React + Web
