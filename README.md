@@ -1,20 +1,15 @@
-![Emacs config thumbnail](img/thumb.png)
-
 # Emacs config
 
-## How to
+![Emacs config thumbnail](img/thumb.png)
 
-### Setup Emacs 26
-If you need to install emacs:
-
-#### From Arch
+## How to Setup Emacs 26 on Arch linux
 
 ``` shell
 pacman -Sy emacs
 systemctl --user enable --now emacs
 ```
 
-#### Apply config
+## App config
 
 Clone the repo:
 
