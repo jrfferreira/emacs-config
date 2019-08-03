@@ -24,9 +24,9 @@
 
 ;; Using keychain env
 "Set the environment variables `SSH_AUTH_SOCK' and `SSH_AGENT_PID'
- in Emacs' `process-environment' according to information retrieved 
+ in Emacs' `process-environment' according to information retrieved
  from files created by the keychain script."
-  
+
 (let* ((ssh (shell-command-to-string "keychain -q --noask --agents ssh --eval")))
   (list (and ssh
              (string-match "SSH_AUTH_SOCK[=\s]\\([^\s;\n]*\\)" ssh)
