@@ -1,4 +1,5 @@
 ;;; Collection of useful functions for the config
+(require 'cl)
 
 (defun utils-kill-current-buffer ()
   "Kill the active buffer"
