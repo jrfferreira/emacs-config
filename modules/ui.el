@@ -39,7 +39,7 @@
 
 
 ;; Font and sizes
-(add-to-list 'default-frame-alist '(font . "Fira Code Retina 12"))
+(add-to-list 'default-frame-alist '(font . "Fira Code Retina 14"))
 (add-to-list 'default-frame-alist '(height . 30))
 (add-to-list 'default-frame-alist '(wheight . 'normal))
 (add-to-list 'default-frame-alist '(width . 90))
@@ -66,7 +66,7 @@
   (doom-themes-neotree-config)
   (doom-themes-org-config)
   :config
-  (load-theme 'doom-one t))
+  (load-theme 'doom-wilmersdorf t))
 
 (use-package doom-modeline
       :ensure t
