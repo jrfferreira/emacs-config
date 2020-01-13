@@ -101,5 +101,19 @@
   (add-hook 'rjsx-mode-hook #'init-js-indent-line))
 
 
+
+(use-package web-mode
+  :ensure t
+  :after (tide)
+  :init
+  (add-hook 'web-mode-hook #'prettier-js-mode)
+  (add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode))))
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+  (flycheck-add-mode 'typescript-tslint 'web-mode)
+)
+
 (provide 'lang-javascript)
 ;;; javascript.el ends here
