@@ -24,7 +24,9 @@
   (dashboard-setup-startup-hook)
   :init
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-  (setq show-week-agenda-p t)
+  (setq show-week-agenda-p nil)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-set-heading-icons t)
   (setq dashboard-banner-logo-title "...and here we are again.")
   (setq dashboard-startup-banner (expand-file-name "./img/zombie.png" user-emacs-directory))
   ;; Items
