@@ -22,17 +22,19 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook)
+  (setq page-break-lines-char ?\s)
   :init
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-  (setq show-week-agenda-p nil)
+  (setq dashboard-set-init-info t)
+  (setq dashboard-center-content t)
   (setq dashboard-set-file-icons t)
   (setq dashboard-set-heading-icons t)
   (setq dashboard-banner-logo-title "...and here we are again.")
   (setq dashboard-startup-banner (expand-file-name "./img/zombie.png" user-emacs-directory))
   ;; Items
-  (setq dashboard-items '((recents  . 5)
+  (setq dashboard-items '((recents  . 10)
                         (projects . 5)
-                        (agenda . 5))))
+                        (bookmarks . 5))))
 
 
 ;; prefer vertical split
