@@ -4,10 +4,13 @@
 (tooltip-mode    -1)
 (menu-bar-mode   -1)
 (global-hl-line-mode t)
-;;(global-display-line-numbers-mode t)
-(add-hook 'prog-mode-hook 'linum-mode)
+(global-display-line-numbers-mode t)
+;;(add-hook 'prog-mode-hook 'linum-mode)
 (setq inhibit-default-init t)
-(setq display-line-numbers "%4d ")
+;;(setq linum-format "%4d")
+(setq-default left-fringe-width  0)
+(setq-default right-fringe-width 10)
+
 (setq inhibit-startup-screen t)
 
 (set-language-environment "UTF-8")

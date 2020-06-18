@@ -29,13 +29,13 @@
   (global-set-key (kbd "s-w") 'delete-window)
   (global-set-key (kbd "s-W") 'delete-frame)
   (global-set-key (kbd "s-n") 'make-frame)
+  (global-set-key (kbd "s-Z") 'undo-tree-redo)
   (global-set-key (kbd "s-z") 'undo-tree-undo)
   (global-set-key (kbd "s-<return>") 'toggle-frame-fullscreen)
   (global-set-key (kbd "s-s")
                   (lambda ()
                     (interactive)
-                    (call-interactively (key-binding "\C-x\C-s"))))
-  (global-set-key (kbd "s-Z") 'undo-tree-redo))
+                    (call-interactively (key-binding "\C-x\C-s")))))
 
   (progn
    (global-set-key (kbd "M-n") 'make-frame)
@@ -118,6 +118,7 @@
    "b]" '(next-buffer :which-key "next buffer")
    "b[" '(previous-buffer :which-key "previous buffer")
    "bk" '(kill-buffer :which-key "kill buffer")
+   "br" '(revert-buffer :which-key "revert buffer to file")
    "bb" '(helm-buffers-list :which-key "buffers list")
    "bd" '(utils-kill-current-buffer :which-key "kill active buffer")
    "bD" '(utils-kill-other-buffers :which-key "kill other buffers")
