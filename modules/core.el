@@ -6,7 +6,9 @@
   (global-undo-tree-mode))
 
 (use-package restclient
-  :ensure t)
+  :ensure t
+  :mode (("\\.http\\'" . restclient-mode))
+)
 
 (use-package multi-term
   :ensure t)
