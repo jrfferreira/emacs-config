@@ -149,7 +149,9 @@
   :init
   (setq highlight-thing-case-sensitive-p t)
   (setq highlight-thing-what-thing 'word)
-  (setq highlight-thing-exclude-thing-under-point t)
+  (setq highlight-thing-delay-seconds 1.5)
+  (setq highlight-thing-exclude-thing-under-point nil)
+  (setq highlight-thing-all-visible-buffers-p t)
   :config
   (global-highlight-thing-mode))
 

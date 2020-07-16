@@ -46,10 +46,13 @@
 (define-key global-map (kbd "<S-mouse-1>") 'mouse-set-point)
 (define-key global-map (kbd "<S-down-mouse-1>") 'mouse-save-then-kill)
 
-
 ;; Easily moving between frames
 (define-key global-map (kbd "s-]") 'next-multiframe-window)
 (define-key global-map (kbd "s-[") 'previous-multiframe-window)
+
+;; Easily moving between buffers
+(define-key global-map (kbd "M-]") 'next-buffer)
+(define-key global-map (kbd "M-[") 'previous-buffer)
 
 ;; Ignoring suspende
 (global-set-key (kbd "C-z") nil)

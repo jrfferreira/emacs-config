@@ -4,8 +4,7 @@
 (tooltip-mode    -1)
 (menu-bar-mode   -1)
 (global-hl-line-mode t)
-(global-display-line-numbers-mode t)
-;;(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (setq inhibit-default-init t)
 ;;(setq linum-format "%4d")
 (setq-default left-fringe-width  0)
@@ -32,7 +31,7 @@
   (setq dashboard-center-content t)
   (setq dashboard-set-file-icons t)
   (setq dashboard-set-heading-icons t)
-  (setq dashboard-banner-logo-title "...and here we are again.")
+  (setq dashboard-banner-logo-title "\"He that breaks a thing to find out what it is has left the path of wisdom\"")
   (setq dashboard-startup-banner (expand-file-name "./img/zombie.png" user-emacs-directory))
   ;; Items
   (setq dashboard-items '((recents  . 10)
@@ -44,9 +43,8 @@
 (setq split-height-threshold nil)
 (setq split-width-threshold 150)
 
-
 ;; Font and sizes
-(add-to-list 'default-frame-alist '(font . "Fira Code Retina 14"))
+(add-to-list 'default-frame-alist '(font . "Fira Code Retina 16"))
 (add-to-list 'default-frame-alist '(height . 30))
 (add-to-list 'default-frame-alist '(wheight . 'normal))
 (add-to-list 'default-frame-alist '(width . 90))
@@ -73,7 +71,8 @@
   (doom-themes-neotree-config)
   (doom-themes-org-config)
   :config
-  (load-theme 'doom-wilmersdorf t))
+  ;; used to be doom-wilmersdorf
+  (load-theme 'doom-palenight t))
 
 (use-package doom-modeline
       :ensure t
@@ -85,6 +84,10 @@
 
       ;; How wide the mode-line bar should be (only respected in GUI Emacs).
       (setq doom-modeline-bar-width 4)
+
+      ;; The limit of the window width.
+      ;; If `window-width' is smaller than the limit, some information won't be displayed.
+      (setq doom-modeline-window-width-limit fill-column)
 
       ;; Determines the style used by `doom-modeline-buffer-file-name'.
       ;;
@@ -129,7 +132,7 @@
       (setq doom-modeline-enable-word-count nil)
 
       ;; Whether display buffer encoding.
-      (setq doom-modeline-buffer-encoding nil)
+      (setq doom-modeline-buffer-encoding t)
 
       ;; Whether display indentation information.
       (setq doom-modeline-indent-info t)
@@ -169,11 +172,36 @@
       (setq doom-modeline-env-perl-executable "perl")
       (setq doom-modeline-env-go-executable "go")
       (setq doom-modeline-env-elixir-executable "iex")
-      (setq doom-modeline-env-rust-executable "rustc"))
+      (setq doom-modeline-env-rust-executable "rustc")
+)
+
+(use-package solaire-mode
+  :ensure t
+  :hook
+  ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+  (minibuffer-setup . solaire-mode-in-minibuffer)
+  :config
+  (solaire-global-mode +1)
+  (solaire-mode-swap-bg))
 
 (use-package rainbow-mode
   :ensure t
   :init
   (add-hook 'prog-mode-hook 'rainbow-mode))
+
+
+;; Highlight similar text
+(use-package highlight-thing
+  :ensure t
+  :init
+  (setq highlight-thing-case-sensitive-p t)
+  (setq highlight-thing-what-thing 'word)
+  (setq highlight-thing-exclude-thing-under-point t)
+  (setq highlight-thing-all-visible-buffers-p t)
+  :config
+  (custom-set-faces
+   '(highlight-thing ((t (:inherit lazy-highlight))))
+   )
+  (global-highlight-thing-mode))
 
 (provide 'ui)
