@@ -206,6 +206,9 @@ respectively."
 ;; replace selected region
 (delete-selection-mode 1)
 
+;; Allow TAB to indent multiple lines
+(transient-mark-mode 1)
+
 
 ;; Text scale affecting everything
 (defadvice text-scale-increase (around all-buffers (arg) activate)
