@@ -36,7 +36,8 @@
   ;; Items
   (setq dashboard-items '((recents  . 10)
                         (projects . 5)
-                        (bookmarks . 5))))
+                        (bookmarks . 3)
+                        (agenda . 3))))
 
 
 ;; prefer vertical split
@@ -44,7 +45,7 @@
 (setq split-width-threshold 150)
 
 ;; Font and sizes
-(add-to-list 'default-frame-alist '(font . "Fira Code Retina 16"))
+(add-to-list 'default-frame-alist '(font . "Fira Code Retina 15"))
 (add-to-list 'default-frame-alist '(height . 30))
 (add-to-list 'default-frame-alist '(wheight . 'normal))
 (add-to-list 'default-frame-alist '(width . 90))
@@ -67,8 +68,29 @@
          (unless (string= "-" project-name)
            (format " :: %s" project-name))))))
 
+;; distinguish file-visiting windows from other types of windows (like popups or sidebars)
+(use-package solaire-mode
+  ;; Ensure solaire-mode is running in all solaire-mode buffers
+  :hook (change-major-mode . turn-on-solaire-mode)
+  ;; ...if you use auto-revert-mode, this prevents solaire-mode from turning
+  ;; itself off every time Emacs reverts the file
+  :hook (after-revert . turn-on-solaire-mode)
+  ;; To enable solaire-mode unconditionally for certain modes:
+  :hook (ediff-prepare-buffer . solaire-mode)
+  ;; Highlight the minibuffer when it is activated:
+  :hook (minibuffer-setup . solaire-mode-in-minibuffer)
+  :config
+  ;; The bright and dark background colors are automatically swapped the first 
+  ;; time solaire-mode is activated. Namely, the backgrounds of the `default` and
+  ;; `solaire-default-face` faces are swapped. This is done because the colors 
+  ;; are usually the wrong way around. If you don't want this, you can disable it:
+  (setq solaire-mode-auto-swap-bg nil)
+
+  (solaire-global-mode +1))
+
 ;; Theme
 (use-package doom-themes
+  :after solaire-mode
   :ensure t
   :init
   (setq doom-themes-enable-bold nil
@@ -76,9 +98,14 @@
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
   (doom-themes-org-config)
+  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
+  
+  (doom-themes-treemacs-config)
   :config
-  ;; used to be doom-wilmersdorf
-  (load-theme 'doom-palenight t))
+
+  (load-theme 'doom-palenight t)
+  (add-to-list '+doom-solaire-themes '(doom-palenight . t))
+  )
 
 (use-package doom-modeline
       :ensure t
@@ -181,33 +208,36 @@
       (setq doom-modeline-env-rust-executable "rustc")
 )
 
-(use-package solaire-mode
-  :ensure t
-  :hook
-  ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
-  (minibuffer-setup . solaire-mode-in-minibuffer)
-  :config
-  (solaire-global-mode +1)
-  (solaire-mode-swap-bg))
-
 (use-package rainbow-mode
   :ensure t
   :init
   (add-hook 'prog-mode-hook 'rainbow-mode))
-
 
 ;; Highlight similar text
 (use-package highlight-thing
   :ensure t
   :init
   (setq highlight-thing-case-sensitive-p t)
-  (setq highlight-thing-what-thing 'word)
+  (setq highlight-thing-what-thing 'symbol)
   (setq highlight-thing-exclude-thing-under-point t)
-  (setq highlight-thing-all-visible-buffers-p t)
+  (setq highlight-thing-all-visible-buffers-p nil)
   :config
   (custom-set-faces
    '(highlight-thing ((t (:inherit lazy-highlight))))
    )
   (global-highlight-thing-mode))
+
+;; Folding code
+(use-package yafolding
+  :ensure t
+  :config
+  (defvar yafolding-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "<C-S-return>") #'yafolding-toggle-all)
+    (define-key map (kbd "<C-return>") #'yafolding-toggle-element)
+    map))
+  :init
+  (add-hook 'prog-mode-hook
+          (lambda () (yafolding-mode))))
 
 (provide 'ui)

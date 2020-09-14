@@ -67,6 +67,7 @@
 (require 'ui)
 (require 'keybinding)
 (require 'org-settings)
+(require 'my-treemacs)
 
 ;; [Languages]
 (add-to-list 'load-path (concat user-emacs-directory "lang"))

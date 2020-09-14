@@ -27,7 +27,7 @@
 	helm-completion-in-region-fuzzy-match t
 	helm-candidate-number-list 150
 	helm-split-window-in-side-p t
-	helm-move-to-line-cycle-in-source t
+	helm-move-to-line-cycle-in-source t ;; C-o to toggle sources
 	helm-echo-input-in-header-line t
 	helm-autoresize-max-height 0
 	helm-autoresize-min-height 20)
@@ -82,7 +82,7 @@
     (add-to-list 'company-transformers 'delete-consecutive-dups t))
   (setq company-idle-delay 0)
   (setq company-tooltip-align-annotations t)
-  ;;(setq company-minimum-prefix-length 2)
+  (setq company-minimum-prefix-length 2)
   :config
   (global-company-mode t)
   ;; Use tab key to cycle through suggestions.
