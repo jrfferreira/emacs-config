@@ -4,6 +4,7 @@
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action)
   :config
   (progn
     (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
@@ -43,13 +44,11 @@
           treemacs-tag-follow-delay              1.5
           treemacs-user-mode-line-format         nil
           treemacs-user-header-line-format       nil
-          treemacs-width                         35
+          treemacs-width                         40
           treemacs-workspace-switch-cleanup      nil
 	  treemacs-load-all-the-icons-with-workaround-font "Hermit")
-    ;; The default width and height of the icons is 22 pixels. If you are
-    ;; using a Hi-DPI display, uncomment this to double the icon size.
-    ;;(treemacs-resize-icons 44)
 
+    (treemacs-resize-icons 44)
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode t)

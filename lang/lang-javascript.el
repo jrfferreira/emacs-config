@@ -25,7 +25,7 @@
   (setq
    ;; flycheck-check-syntax-automatically '(save mode-enabled)
    tide-format-options '(:indentSize 2 :indentStyle 2 :tabSize 2 :ConvertTabsToSpaces t)
-   tide-tsserver-executable (concat where-bin "tsserver")
+   tide-tsserver-executable nil
    tide-completion-detailed t
      tide-always-show-documentation t
      )
@@ -106,11 +106,23 @@
   :ensure t
   :after (tide)
   :init
-  (add-hook 'web-mode-hook #'prettier-js-mode)
+  (setq
+   js2-mode-show-strict-warnings nil
+   js2-mode-show-parse-errors nil
+   js-indent-level 2
+   js2-basic-offset 2
+   sgml-basic-offset 2
+   js2-strict-trailing-comma-warning nil
+   js2-strict-missing-semi-warning nil)
+
   (add-hook 'web-mode-hook
           (lambda ()
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
               (setup-tide-mode))))
+  (add-hook 'web-mode-hook #'init-company-flow)
+  (add-hook 'web-mode-hook #'init-flycheck)
+  (add-hook 'web-mode-hook #'prettier-js-mode)
+  
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
   (flycheck-add-mode 'typescript-tslint 'web-mode)
 )
